@@ -91,3 +91,13 @@ form input{
 .delete {
   z-index: 3;
 }
+
+.button {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: white solid 2px;
+  padding: 5px;
+  text-shadow: 0 0 3px black;
+  border-radius: 20px;
+}

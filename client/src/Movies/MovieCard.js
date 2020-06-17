@@ -9,8 +9,10 @@ const MovieCard = props => {
     Axios.delete(`http://localhost:5000/api/movies/${id}`)
     .then(res => {
       console.log(res)
-      // props.setMovieList(res)
+      props.setEdit(true)
     })
+
+    props.setEdit(false);
   }
 
   return (

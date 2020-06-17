@@ -1,10 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props.movie;
+  const { title, director, metascore, stars, id } = props.movie;
+
+  const deleteMovie = id => {
+    Axios.delete(`http://localhost:5000/api/movies/${id}`)
+    .then(res => {
+      console.log(res)
+      // props.setMovieList(res)
+    })
+  }
+
   return (
     <div className="movie-card">
+      <Link to="`/movies/${id}`">
       <h2>{title}</h2>
+      </Link>
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>
@@ -18,6 +31,9 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+
+      <Link to={`/update-movie/${id}`}>Edit</Link>
+      <button className="delete button" onClick={() => deleteMovie(id)}>X</button>
     </div>
   );
 };

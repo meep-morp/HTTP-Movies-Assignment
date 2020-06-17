@@ -75,3 +75,19 @@ body {
   color: red;
   text-align: center;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form input{
+  margin: 5px;
+  width: 25%;
+}
+
+.delete {
+  z-index: 3;
+}

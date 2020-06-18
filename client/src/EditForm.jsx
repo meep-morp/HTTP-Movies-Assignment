@@ -11,7 +11,7 @@ const EditForm = props => {
         metascore: 0,
         stars: []
     });
-    const [newStars, setNewStars] = useState([]);
+    const [newStars, setNewStars] = useState(values.stars);
 
     const UrlId = useParams();
     const id = UrlId.id;
@@ -31,24 +31,24 @@ const EditForm = props => {
     }
 
     const newStarsHandler = e => {
-        setValues({
-            ...values,
-            stars: [...values.stars, e.target.value]
-        })
+        setNewStars({ ...newStars, [e.target.name]: e.target.value })
     }
+    console.log(newStars)
 
     const onSubmitHandler = e => {
         e.preventDefault();
 
         const editValues = {
             ...values,
-            ...newStars
+            stars: [newStars.star0, newStars.star1, newStars.star3]
         }
 
         axios.put(`http://localhost:5000/api/movies/${id}`, editValues)
 
         window.location.assign("/");
     }
+
+    console.log(newStars)
 
     return (
         <form onSubmit={onSubmitHandler}>
@@ -70,16 +70,26 @@ const EditForm = props => {
                 value={values.metascore}
                 onChange={onChangeHandler}
             />
-            {values.stars.map(star => (
-                <input
-                    type="text"
-                    name="stars"
-                    value={star}
-                    onChange={newStarsHandler}
-                />
-            ))}
-
-            <button type="submit">Submit</button>
+            <input
+                type="text"
+                name="image"
+                placeholder="Image Address"
+                value={values.image}
+                onChange={onChangeHandler}
+            />
+            <p>Stars</p>
+            <div className="actors">
+                {values.stars.map((star, i) => (
+                    <input
+                        type="text"
+                        name={`star${i}`}
+                        value={newStars[i]}
+                        placeholder="Actor"
+                        onChange={newStarsHandler}
+                    />
+                ))}
+            </div>
+            <button className="button" type="submit">Submit</button>
         </form>
     )
 }

@@ -29,11 +29,14 @@ const App = () => {
 
   return (
     <>
+      <h1>MyMovie List ©</h1>
       <SavedList list={savedList} />
 
-    <Link to="/add">Add Movie</Link>
 
       <Route exact path="/">
+        <div className="home">
+          <Link className="button" to="/add">Add Movie +</Link>
+        </div>
         <MovieList movies={movieList} setEdit={setEdit} />
       </Route>
 

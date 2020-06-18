@@ -1,12 +1,24 @@
+* {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #f2f2f2;
+  background: rgb(149, 16, 16);
+background: linear-gradient(180deg, 
+  rgb(172, 14, 14) 0%, 
+  rgba(71,7,7,1) 83%);
+}
+
+h1 {
+  text-align: center;
+  color: white;
 }
 
 .movie-card {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -14,6 +26,38 @@ body {
   cursor: pointer;
   position: relative;
   margin: 1rem auto;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-card img {
+  height: 500px;
+  width: 300px;
+  margin-left: 30%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: red solid 2px;
+  width: 400px;
+  padding: 10px;
 }
 
 .movie-director {
@@ -49,12 +93,17 @@ body {
   padding: 5px;
 }
 .save-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
   width: 75%;
+  /* height: 72vh; */
   margin: 1rem auto;
 }
 .save-button {
-  position: absolute;
+  /* position: absolute; */
   top: 25px;
   right: 25px;
   border: 1px solid grey;
@@ -66,10 +115,6 @@ body {
   color: white;
 }
 
-.home-button {
-  padding: 5px 10px;
-  background-color: lightskyblue;
-}
 
 .movie-warning {
   color: red;
@@ -81,11 +126,17 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 74vh;
 }
 
 form input{
   margin: 5px;
   width: 25%;
+  height: 30px;
+  border-radius: 20px;
+  border:none;
+  padding: 5px;
+  outline: none;
 }
 
 .delete {
@@ -97,7 +148,37 @@ form input{
   color: white;
   font-weight: bold;
   border: white solid 2px;
-  padding: 5px;
+  padding: 8px;
   text-shadow: 0 0 3px black;
   border-radius: 20px;
+  text-decoration: none;
+  width: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  background: rgb(243, 160, 160);
+  transition: 0.3s ease;
+}
+
+.link {
+  margin-top: 20px;
+  color: rgb(211, 69, 69);
+}
+
+.link:hover {
+  color: rgb(97, 31, 31);
+  transition: 0.3s ease;
+}
+
+form p {
+  color: white;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
